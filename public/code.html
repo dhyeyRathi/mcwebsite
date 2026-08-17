@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manav Canvassers - Agricultural Commodities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#c3c8c0",
+                      "secondary-fixed": "#ffdea0",
+                      "on-tertiary-fixed-variant": "#434843",
+                      "surface-container-highest": "#d8e6de",
+                      "on-secondary-fixed": "#261a00",
+                      "background": "#effdf4",
+                      "surface": "#effdf4",
+                      "primary": "#002518",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#e6f4ec",
+                      "on-primary-container": "#80a592",
+                      "on-primary-fixed": "#002115",
+                      "outline": "#717974",
+                      "primary-fixed-dim": "#a8cfba",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#426655",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#effdf4",
+                      "surface-container": "#e3f1e9",
+                      "primary-fixed": "#c4ecd6",
+                      "inverse-surface": "#27332e",
+                      "on-secondary-fixed-variant": "#5a430f",
+                      "surface-container-low": "#e9f7ef",
+                      "on-background": "#121e19",
+                      "on-tertiary-fixed": "#181d18",
+                      "on-surface": "#121e19",
+                      "inverse-primary": "#a8cfba",
+                      "secondary": "#735b25",
+                      "surface-dim": "#cfddd5",
+                      "tertiary-fixed": "#dfe4dc",
+                      "surface-variant": "#d8e6de",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed-dim": "#e3c282",
+                      "on-primary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#999f98",
+                      "tertiary-container": "#313631",
+                      "outline-variant": "#c1c8c2",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#414844",
+                      "tertiary": "#1c211c",
+                      "secondary-container": "#fedb99",
+                      "on-secondary-container": "#785f29",
+                      "on-primary-fixed-variant": "#2a4e3e",
+                      "surface-container-high": "#ddebe3",
+                      "primary-container": "#173b2c",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "section-gap": "80px",
+                      "container-padding": "24px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "label-sm": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-lg-mobile": [
+                              "\"Source Serif 4\""
+                      ],
+                      "headline-md": [
+                              "\"Source Serif 4\""
+                      ],
+                      "label-md": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .bg-editorial-light { background-color: #E9EEE6; }
+          .bg-editorial-cream { background-color: #F7F5EF; }
+          .bg-editorial-dark { background-color: #10261E; }
+          .editorial-divider { border-bottom: 1px solid #717974; }
+          .soft-shadow { box-shadow: 0 2px 4px rgba(0, 37, 24, 0.04), 0 12px 20px rgba(0, 37, 24, 0.06); }
+          .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 37, 24, 0.06), 0 16px 24px rgba(0, 37, 24, 0.08); }
+          html { scroll-behavior: smooth; }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- 1. Sticky Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-outline-variant shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2" href="#">
+<img alt="Manav Canvassers Logo" class="h-10 md:h-12 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkteUFX4PyGZ_dJWz0AdL7LYO_4z_dB0408FAPYLekgo-SyJ1vxlqZNX3RvVPgzflRr42fScM5b5fIm43LmhvEktAMPr0czp7nXjk7QbU4mxi7fymIH-Oa4elD9YY5UqGA8Qy4on9oYAxXTWdmLhdPQAlc2eUN0iDlMvKekm9kQ92LcxdGNLEwtrjnxhQHP-PBehyd9leWkYC-RgIcDhxEdiDZK033yl6gE236TW6Vw5UdzyBti_0fu8xC3wF8W9WO6A"/>
+</a>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#company">Company</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#products">Products</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#resources">Resources</a>
+<a class="text-on-surface-variant font-label-md hover:text-secondary transition-colors duration-300" href="#contact">Contact</a>
+</nav>
+<a class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary font-label-md px-6 py-3 rounded hover:bg-primary-container transition-colors duration-300" href="#contact">
+                Request a Quote
+            </a>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- 2. Full-screen Hero -->
+<section class="relative min-h-screen flex items-center pt-24" data-alt="A sweeping, cinematic wide-angle shot of a vast, golden agricultural landscape at dawn. A herd of healthy cattle grazes peacefully in the foreground while endless fields of crops stretch toward the horizon. The lighting is dramatic and natural, casting long shadows. The color palette emphasizes rich forest greens, warm sunrise golds, and deep earth tones, creating a highly professional, legacy-driven, and authoritative mood suitable for a premium B2B corporate agricultural brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6WWteRAp3F8zGir_SWyjkNlyVhKMsql5Sxzg0Cd8RY5a56OuiI_w7TiW39DozF6JTnS0gYiQK534r5k7_CLHxcynSUIjCgHI9UWqs5-BsTWWRqc2tvYmok4KvKcHt7gw0U6WObUxd8to6hWBFfyR1NWRQUjt24m5olqhqYC2Ocmqqya_8vQbtd6T_ILtclx39-eHCDlpL31yj75DzrqxEHT3UGT4zkAsMncSsDinJ_SdQZK5QLCR4'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+<div class="relative z-10 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<span class="block text-secondary-fixed font-label-md uppercase tracking-[0.1em] mb-6 md:mb-8">AGRICULTURAL COMMODITIES • RAW MATERIALS • FEED INGREDIENTS</span>
+<h1 class="text-on-primary font-display-lg text-4xl md:text-6xl lg:text-7xl max-w-5xl mx-auto leading-tight mb-10">RELIABLE AGRICULTURAL SUPPLY.<br/>BUILT FOR BUSINESS.</h1>
+<a class="inline-flex items-center gap-2 border border-secondary-fixed text-secondary-fixed font-label-md px-8 py-4 rounded hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors duration-300" href="#products">
+                    Explore Commodities
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- 3. Company Introduction -->
+<section class="py-24 md:py-40 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto" id="company">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+<div>
+<h2 class="text-primary font-headline-lg md:text-5xl leading-tight mb-8">ROOTED IN TRADITION. BUILT FOR THE FUTURE.</h2>
+<p class="text-on-surface-variant font-body-lg mb-6">
+                        Manav Canvassers stands at the intersection of deep-rooted agricultural heritage and modern corporate efficiency. We are dedicated to bridging the gap between raw, earth-grown potential and the precise demands of global business.
+                    </p>
+<p class="text-on-surface-variant font-body-lg mb-8">
+                        Our commitment is not just to supply, but to stabilize and empower your supply chain with uncompromising quality and meticulously organized logistics.
+                    </p>
+<a class="inline-flex items-center gap-2 text-primary font-label-md border-b-2 border-secondary pb-1 hover:text-secondary transition-colors duration-300" href="#">
+                        Read Our Full Story
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_right_alt</span>
+</a>
+</div>
+<div class="relative h-[500px] rounded-lg overflow-hidden soft-shadow">
+<img alt="Agricultural Tradition" class="w-full h-full object-cover" data-alt="A meticulously composed editorial photograph of a modern, organized grain storage facility set against a backdrop of fertile farmland. The scene balances the organic nature of agriculture with the precision of corporate enterprise. Clean, geometric lines of silos contrast with the soft, rolling green fields. The lighting is bright and clear, adhering to a light-mode aesthetic with a palette dominated by forest greens, cream, and soft sage. The mood is calm, authoritative, and stable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtUUhw9Yae7yZywypbvljecwAL_bqNro6cCXqjIccfHRV4_Ac2gFGscCaVfCarX55EnEf1DDMCnO_N9nQH4Q13xO_pus39yAg7QbRGK3DoTFl-Gskxa73Ruzr1jCJijYyFTa1Li9jSPE41eeBKZv0e_GAkyhzmQAudcDYsbgmy2KTPaCJtE-zH9F8v_6l3E6lolg7HGxT4KNLe34hKTMm0TN_5G7YtrYGsviJFVho3ZGnp22awBvvO"/>
+</div>
+</div>
+</section><section class="py-24 md:py-40 bg-editorial-cream" id="products">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16">
+<span class="block text-secondary font-label-md uppercase tracking-[0.1em] mb-4">OUR PRODUCTS</span>
+<h2 class="text-primary font-headline-lg md:text-5xl leading-tight mb-6">QUALITY PRODUCTS. RELIABLE SUPPLY.</h2>
+<p class="text-on-surface-variant font-body-lg max-w-3xl">We provide a comprehensive range of high-quality agricultural commodities and feed ingredients, sourced with integrity and delivered with precision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Corn -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="High-quality yellow corn kernels" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKrV7uB4LHzAzqrXF2RpU6y_tG6v9z7jXChpEbNyoHSvbY1B83xeBL95bwwNRglzfI5f86MjjaWBTi7lBGNRwPN-212dLMr8AYLQIdfbjvYGD2Z0xrGndcDhfr5wqCnxTQ5xiFOFAwWoO1tFj-w0xZL9N9s-5Hl9pTMIBQYTZB7R5_vloKK7tA004MLYHdTtIpS3LCHd2b58vf1jsr_sStftk3eVED1-6DDLtJ6Pke-yq5lkrJA7GS"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Corn</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Protein: 8-9%</span>
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Moisture: 14% max</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Soybean Meal -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="Soybean meal in burlap sack" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIwHQSMZB-O0IeHW_8b4_Y4b6sT7EP_qR4s3uxPSvYNJjGGcQDTRi5iXerEjJCndf795eEnm8nZN6cBfWHXSFmwY8_aTDLP0b7_lWENsobIfA5Gmu9ZMGT-dBFqo93Ea6Dodh8mBHmujcvgsZc08Uoc_rCZkod4MWlVHkG7PcKOoMK9MDxArE38fMC2a85VeDTfATEGKXJTf3hfhLyHRlnXqSTxuRdCoG7ZU7Qkc7mwA9zSAadP_EW"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Soybean Meal</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Protein: 46-48%</span>
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Fiber: 3.5% max</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Wheat Bran -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="Wheat bran in storage container" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF2b99Zhx7mDP7fcRxYBgij_UhATNB9Hh3UlGZpKSJcnBwb3ifL6SrS9ExY94NWTiOYo42RAWb1FLNlpPObRrB5m-9SgXJx8EZkxO3CgeY6vpPYeSs2sGBmqGpvXilfJzhx7Ggkq8N6fkqrxXYbLwQx9bPISVOoL_yUT4NLTaCa_dcJjstZenu8r6OZA93CHIEzNl9uDuS3mC8k2lld9UjPhWAIR8-7eCI0VYDgOnQRzwFfBsvm4mz"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Wheat Bran</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Protein: 14.5% min</span>
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Moisture: 12% max</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Rice Bran -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="Rice bran grains" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0_QSRt4EDPsnDslQS5IUUBmNDqGY5IYIAW908BKFiJIMq-0hGvyaWeFr0aqib5S3MyaXjPXTMZ-OhXGiHhchKbJwsCm3hc23_7xk_WZWEBAxBhkE8VuiK7gwIE_iwWk0bUre50rP5IMZ6ve6Kxg6c0uDyiS19_HTl8ov8tWchGS1jPHniFLAJnUVO6MMBMCT8i_Rm74Ike9-tT3Kd_Dx4akcWZeNBwUfigQqBWWKQXV5_9gC5kBah"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Rice Bran</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Fat: 15% min</span>
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Fiber: 12% max</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Cottonseed Meal -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="Cottonseed meal raw material" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVe7WxM5A7UaifcelxvvdVK7z4dyLxAeG1Yir-aP_y7T1glTMyPSTJs63lMQXtkdmrfIC6eAwdmg088yAZgK9-BmFeiZxm-Riui2PEr7sh9WVj0M2Vu-4AI3q9s7-K1sYTuwo1Z-uQsE_f2nrXiWSgvOM4nljERwkiyUIXU5wY5qFf7DNg_GnIpCYHoFdEQ0exc1F7HiavjodmTD1Ns4Shlf_8acV7HUwm3i3KHUAzogMb_6VCqC0L"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Cottonseed Meal</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Protein: 40% min</span>
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Moisture: 10% max</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Specialty Feed -->
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden soft-shadow hover-lift transition-all">
+<div class="h-64 overflow-hidden">
+<img alt="Assorted agricultural feed ingredients" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKq8XAKrK2vfae_TDRnRQsoSZ_3-kG6QiQXJIoOPcord2RoX9KSiFT2K7z2zwm_F1w5wNbucHjKRCOVv47RL3Sid5uUjPgwIUDVxrSHTxN79iLArjiswysSVYKpiMPgzS9e1OmR7H_uRu_xkIhQxaiyrwnBFpjNslNRfDsmoLdXjtyEZlr_17jbTk8PoaMgNB3UyKXI4AOu-2S1xDPfBQJFnpixAAdegDjucSoSY2uSdVjaIzmchLv"/>
+</div>
+<div class="p-6">
+<h3 class="text-primary font-headline-md mb-4">Specialty Feed Ingredients</h3>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded text-sm font-label-md text-on-surface-variant">Custom specifications available</span>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-label-md hover:text-secondary transition-colors" href="#">
+                        View Product
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section><section class="py-24 md:py-40 bg-editorial-light" id="reviews">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<span class="block text-secondary font-label-md uppercase tracking-[0.1em] mb-4">TESTIMONIALS</span>
+<h2 class="text-primary font-headline-lg md:text-5xl leading-tight">TRUSTED BY INDUSTRY LEADERS</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-white p-8 rounded-lg soft-shadow">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed mb-6" style="color: #C8A96B;">format_quote</span>
+<p class="text-on-surface-variant font-body-lg mb-8 italic">"Manav Canvassers has been a pivotal partner in our supply chain. Their consistency in quality and timely delivery is unmatched in the industry."</p>
+<div>
+<p class="text-primary font-label-md">Rahul Mehta</p>
+<p class="text-on-surface-variant text-sm">Director, Mehta Agro Exports</p>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-white p-8 rounded-lg soft-shadow">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed mb-6" style="color: #C8A96B;">format_quote</span>
+<p class="text-on-surface-variant font-body-lg mb-8 italic">"The level of professionalism and attention to detail in their logistics is exceptional. They truly understand the demands of global business."</p>
+<div>
+<p class="text-primary font-label-md">Ankit Shah</p>
+<p class="text-on-surface-variant text-sm">Operations Head, Global Feed Solutions</p>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-white p-8 rounded-lg soft-shadow">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed mb-6" style="color: #C8A96B;">format_quote</span>
+<p class="text-on-surface-variant font-body-lg mb-8 italic">"Reliable, transparent, and high-quality. We've seen a significant improvement in our production efficiency since partnering with them."</p>
+<div>
+<p class="text-primary font-label-md">Priya Patel</p>
+<p class="text-on-surface-variant text-sm">Procurement Manager, Patel Organics</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 14. Professional Footer (Placed at end per instructions, just stubbing here to close main) -->
+</main>
+<footer class="bg-primary pt-section-gap pb-8 border-t border-primary-container">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="md:col-span-2 mb-8 md:mb-0">
+<img alt="Manav Canvassers Logo" class="h-12 w-auto object-contain mb-4 filter brightness-0 invert opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2knxv00d0O0UjFol3iLJNroGn4mmZ0FFsTCTCDR071ePI1OZZMvXjtb6qjH4VhDMandj0ZP1GRsM-5b6pdijXdsmGGKrfWep8l5JkPico9pqDweQh6k4P_g99Smnwww8Z36GhootyirXKQOJwsNga1aY32Gqj7UTPSvdBgFjVbyrzK9dhgAHlxmzYyNB6ex9NIDQaJgYHBRHn72QjIAe4wPvhDYLUGspfnlT2oFtCADtyLNjm48x0_vR6dIEPhETWUA"/>
+<p class="text-on-primary-container font-body-md max-w-sm mt-4">
+                    © 2024 Manav Canvassers. All rights reserved. Meticulously organized for agricultural excellence.
+                </p>
+</div>
+<div>
+<h4 class="text-secondary-fixed font-headline-md mb-4 text-lg">Company</h4>
+<ul class="space-y-3">
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">About Us</a></li>
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">Our Process</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-secondary-fixed font-headline-md mb-4 text-lg">Products</h4>
+<ul class="space-y-3">
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">Commodities</a></li>
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">Ingredients</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-secondary-fixed font-headline-md mb-4 text-lg">Contact</h4>
+<ul class="space-y-3">
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">Get a Quote</a></li>
+<li><a class="text-on-primary-container font-body-md hover:text-secondary-fixed transition-colors underline decoration-secondary-fixed" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a aria-label="Chat on WhatsApp" class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:-translate-y-1 transition-transform duration-300 flex items-center justify-center" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+</body></html>
