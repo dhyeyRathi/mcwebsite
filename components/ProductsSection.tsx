@@ -73,7 +73,7 @@ export default function ProductsSection({
               className="group bg-white border border-stone-200/90 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                {/* Image Container with refined height */}
+                {/* Image Container */}
                 <div className="h-72 sm:h-80 overflow-hidden relative bg-stone-100">
                   <img
                     src={product.image}
@@ -118,15 +118,15 @@ export default function ProductsSection({
 
               {/* Card Footer Action */}
               <div className="p-6 pt-0 border-t border-stone-100 mt-2">
-                <a
-                  href="#contact"
+                <Link
+                  href={`/contact?product=${encodeURIComponent(product.title)}`}
                   className="w-full inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#0B251B] group-hover:text-[#735B25] pt-4 transition-colors"
                 >
                   <span>Enquire Availability & Pricing</span>
                   <span className="material-symbols-outlined text-sm font-bold group-hover:translate-x-1.5 transition-transform">
                     arrow_forward
                   </span>
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

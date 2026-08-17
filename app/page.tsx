@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import CompanySection from "@/components/CompanySection";
 import ProductsSection from "@/components/ProductsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 
@@ -14,9 +13,8 @@ export default function Home() {
       <main>
         <Hero />
         <CompanySection />
-        <ProductsSection />
+        <ProductsSection limit={3} showViewAll />
         <TestimonialsSection />
-        <ContactSection />
         <Footer />
       </main>
       <WhatsAppFAB />

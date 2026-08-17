@@ -3,18 +3,20 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#company" },
-  { label: "Products We Deal In", href: "#products" },
-  { label: "Testimonials", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Products We Deal In", href: "/products" },
+  { label: "Who We Serve", href: "/customers" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <motion.header
@@ -55,7 +57,7 @@ export default function Header() {
       </div>
 
       <div className="flex justify-between items-center w-full px-4 md:px-16 py-3.5 max-w-7xl mx-auto">
-        <Link href="#" className="flex items-center gap-3.5 group">
+        <Link href="/" className="flex items-center gap-3.5 group">
           <Image
             src="/assets/logo/logo.png"
             alt="Manav Canvassers Logo"
@@ -76,25 +78,38 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-semibold text-stone-700 hover:text-[#735B25] transition-colors duration-200 py-1"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-semibold transition-colors duration-200 relative py-1 ${
+                  isActive
+                    ? "text-[#735B25]"
+                    : "text-stone-700 hover:text-[#0B251B]"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#735B25] rounded-full"
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Action button */}
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center bg-[#0B251B] hover:bg-[#173B2C] text-white text-xs md:text-sm font-semibold px-5 py-2.5 rounded-md transition-colors duration-200 shadow-sm"
           >
             Get Sourcing Quote
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -121,23 +136,28 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-b border-stone-200 px-6 py-4 flex flex-col gap-3 shadow-lg overflow-hidden"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold py-2 border-b border-stone-100 text-stone-800 hover:text-[#735B25]"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-base font-semibold py-2 border-b border-stone-100 ${
+                    isActive ? "text-[#735B25]" : "text-stone-800"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="inline-flex items-center justify-center bg-[#0B251B] text-white text-base font-semibold px-6 py-3 rounded-md mt-2"
             >
               Get Sourcing Quote
-            </a>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

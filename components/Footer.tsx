@@ -15,7 +15,7 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
         <div className="md:col-span-2">
-          <Link href="#" className="inline-block mb-4">
+          <Link href="/" className="inline-block mb-4">
             <Image
               src="/assets/logo/logo.png"
               alt="Manav Canvassers Logo"
@@ -45,29 +45,38 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
             <li>
-              <a href="#" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-white transition-colors">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#company" className="hover:text-white transition-colors">
+              <Link href="/about" className="hover:text-white transition-colors">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 Products We Deal In
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#reviews" className="hover:text-white transition-colors">
-                Testimonials
-              </a>
+              <Link
+                href="/customers"
+                className="hover:text-white transition-colors"
+              >
+                Who We Serve
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="hover:text-white transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-white transition-colors"
+              >
                 Contact & Sourcing Desk
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -78,29 +87,44 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 Maize DDGS & Maize DOC
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 Rice DDGS & Rice Polish
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 Wheat Bran & Rice Broken
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 GN DOC & Rapeseed DOC
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#products" className="hover:text-white transition-colors">
+              <Link
+                href="/products"
+                className="hover:text-white transition-colors"
+              >
                 Commercial Cattle Feed
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
