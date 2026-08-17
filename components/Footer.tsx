@@ -15,7 +15,7 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
         <div className="md:col-span-2">
-          <Link href="/" className="inline-block mb-4">
+          <Link href="#" className="inline-block mb-4">
             <Image
               src="/assets/logo/logo.png"
               alt="Manav Canvassers Logo"
@@ -33,7 +33,7 @@ export default function Footer() {
           </p>
           <div className="text-xs text-stone-400 space-y-1 bg-white/5 p-4 rounded-lg border border-white/10 max-w-sm">
             <p className="font-bold text-white">
-              APMC Vadodara Central Market
+              📍 APMC Vadodara Central Market
             </p>
             <p>F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006, Gujarat</p>
           </div>
@@ -45,38 +45,29 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">
+              <a href="#" className="hover:text-white transition-colors">
                 Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white transition-colors">
+              <a href="#company" className="hover:text-white transition-colors">
                 About Us
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 Products We Deal In
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/customers"
-                className="hover:text-white transition-colors"
-              >
-                Who We Serve
-              </Link>
+              <a href="#reviews" className="hover:text-white transition-colors">
+                Testimonials
+              </a>
             </li>
             <li>
-              <Link
-                href="/contact"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#contact" className="hover:text-white transition-colors">
                 Contact & Sourcing Desk
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -87,44 +78,29 @@ export default function Footer() {
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 Maize DDGS & Maize DOC
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 Rice DDGS & Rice Polish
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 Wheat Bran & Rice Broken
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 GN DOC & Rapeseed DOC
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href="/products"
-                className="hover:text-white transition-colors"
-              >
+              <a href="#products" className="hover:text-white transition-colors">
                 Commercial Cattle Feed
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
