@@ -56,28 +56,28 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center w-full px-4 md:px-16 py-3.5 max-w-7xl mx-auto">
-        <Link href="/" className="flex items-center gap-3.5 group">
+      <div className="flex justify-between items-center w-full px-4 md:px-16 py-2 md:py-2.5 max-w-7xl mx-auto">
+        <Link href="/" className="flex items-center gap-3 group">
           <Image
             src="/assets/logo/logo.png"
             alt="Manav Canvassers Logo"
-            width={200}
-            height={50}
-            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            width={160}
+            height={40}
+            className="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             priority
           />
           <div className="flex flex-col">
-            <span className="text-[#0B251B] font-serif font-bold text-lg md:text-xl tracking-tight leading-none group-hover:text-[#735B25] transition-colors">
+            <span className="text-[#0B251B] font-serif font-bold text-base md:text-lg tracking-tight leading-none group-hover:text-[#735B25] transition-colors">
               Manav Canvassers
             </span>
-            <span className="text-[#735B25] text-[10px] md:text-xs font-semibold uppercase tracking-wider mt-0.5">
+            <span className="text-[#735B25] text-[9px] md:text-[10px] font-semibold uppercase tracking-wider mt-0.5">
               Cattle Feed Brokerage
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -106,7 +106,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center bg-[#0B251B] hover:bg-[#173B2C] text-white text-xs md:text-sm font-semibold px-5 py-2.5 rounded-md transition-colors duration-200 shadow-sm"
+            className="inline-flex items-center justify-center bg-[#0B251B] hover:bg-[#173B2C] text-white text-xs md:text-sm font-semibold px-4 py-2 rounded-md transition-colors duration-200 shadow-sm"
           >
             Get Sourcing Quote
           </Link>
@@ -115,7 +115,7 @@ export default function Header() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-[#0B251B] p-2 focus:outline-none"
+          className="lg:hidden text-[#0B251B] p-1.5 focus:outline-none"
           aria-label="Toggle mobile menu"
         >
           <span

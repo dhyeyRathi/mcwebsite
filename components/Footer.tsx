@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 30 }}
@@ -15,13 +17,13 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-16 grid grid-cols-1 md:grid-cols-5 gap-10 mb-16">
         <div className="md:col-span-2">
-          <Link href="/" className="inline-block mb-4">
+          <Link href="/" className="block mb-6">
             <Image
               src="/assets/logo/logo.png"
               alt="Manav Canvassers Logo"
               width={200}
               height={50}
-              className="h-12 w-auto object-contain"
+              className="h-7 sm:h-8 w-auto object-contain origin-left"
             />
           </Link>
           <p className="text-[#C8A96B] text-sm font-semibold tracking-wide mb-2">
@@ -32,15 +34,21 @@ export default function Footer() {
             commodity supply chain.
           </p>
           <div className="text-xs text-stone-400 space-y-1 bg-white/5 p-4 rounded-lg border border-white/10 max-w-sm">
-            <p className="font-bold text-white">
-              📍 APMC Vadodara Central Market
+            <p className="font-bold text-white flex items-center gap-1.5">
+              <span
+                className="material-symbols-outlined text-sm text-[#C8A96B]"
+                style={{ fontVariationSettings: "'FILL' 0" }}
+              >
+                location_on
+              </span>
+              APMC Vadodara Central Market
             </p>
             <p>F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006, Gujarat</p>
           </div>
         </div>
 
-        <div>
-          <h4 className="text-[#C8A96B] font-serif font-bold text-base mb-4 uppercase tracking-wider">
+        <div className="flex flex-col justify-center">
+          <h4 className="text-[#C8A96B] font-serif font-bold text-base uppercase tracking-wider mb-6">
             Navigation
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
@@ -81,8 +89,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h4 className="text-[#C8A96B] font-serif font-bold text-base mb-4 uppercase tracking-wider">
+        <div className="flex flex-col justify-center ">
+          <h4 className="text-[#C8A96B] font-serif font-bold text-base uppercase tracking-wider mb-6">
             Key Commodities
           </h4>
           <ul className="space-y-2.5 text-sm text-stone-300">
@@ -129,8 +137,8 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
-          <h4 className="text-[#C8A96B] font-serif font-bold text-base mb-4 uppercase tracking-wider">
+        <div className="flex flex-col justify-center ">
+          <h4 className="text-[#C8A96B] font-serif font-bold text-base uppercase tracking-wider mb-6">
             Direct Contacts
           </h4>
           <div className="space-y-4 text-xs text-stone-300">
@@ -187,7 +195,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-400">
-        <p>© 2024 Manav Canvassers. All rights reserved.</p>
+        <p>© {currentYear} Manav Canvassers. All rights reserved.</p>
         <p className="text-[#C8A96B] font-semibold text-center">
           Quality Feed. Healthy Livestock. Better Tomorrow.
         </p>
