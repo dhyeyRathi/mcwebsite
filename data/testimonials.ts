@@ -27,4 +27,18 @@ export const testimonials: Testimonial[] = [
     name: "Priya Patel",
     role: "Procurement Manager, Patel Organics",
   },
+  {
+    id: "sanjay-verma",
+    quote:
+      "We have been working with Manav Canvassers for over five years. Their prompt communication and vast network of trusted suppliers give us immense confidence in our supply chain.",
+    name: "Sanjay Verma",
+    role: "Founder, Verma Dairy Feeds",
+  },
+  {
+    id: "neha-singh",
+    quote:
+      "Professional, efficient, and always looking out for their clients' best interests. Their market insights on grain pricing have been invaluable for our seasonal purchasing strategy.",
+    name: "Neha Singh",
+    role: "Head of Sourcing, Singh & Sons Agro",
+  },
 ];
