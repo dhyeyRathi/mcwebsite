@@ -2,7 +2,13 @@
 
 import { motion } from "framer-motion";
 
-export default function WhatsAppFAB() {
+interface WhatsAppFABProps {
+  whatsappNumber?: string;
+}
+
+export default function WhatsAppFAB({ whatsappNumber = "919642174768" }: WhatsAppFABProps) {
+  const cleanNumber = whatsappNumber.replace(/\D/g, "") || "919642174768";
+
   return (
     <motion.a
       initial={{ scale: 0, opacity: 0 }}
@@ -10,7 +16,7 @@ export default function WhatsAppFAB() {
       transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.9 }}
-      href="https://wa.me/919642174768?text=Hello%20Manav%20Canvassers,%20I%20would%20like%20to%20enquire%20about%20cattle%20feed%20ingredients."
+      href={`https://wa.me/${cleanNumber}?text=Hello%20Manav%20Canvassers,%20I%20would%20like%20to%20enquire%20about%20cattle%20feed%20ingredients.`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Manav Canvassers on WhatsApp"

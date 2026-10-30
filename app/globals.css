@@ -103,3 +103,12 @@
 .fab-pulse-effect {
   animation: fab-pulse 2s infinite;
 }
+
+/* Hide scrollbars across all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

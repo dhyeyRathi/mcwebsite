@@ -1,19 +1,41 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import ProductsSection from "@/components/ProductsSection";
 import Image from "next/image";
+import {
+  getProductsAction,
+  getSiteSettingsAction,
+  constructPageMetadata,
+} from "@/app/actions/sanity";
 
-export const metadata = {
-  title: "Products - Manav Canvassers",
-  description:
-    "Explore our wide range of cattle-feed ingredients and agricultural commodities including Maize DDGS, Maize DOC, Rice DDGS, and Wheat Bran.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return constructPageMetadata("products", {
+    title: "Products We Deal In - Maize DDGS, Rice DDGS, DOC & Feed Ingredients | Manav Canvassers",
+    description:
+      "Explore our wide range of cattle-feed ingredients and agricultural commodities including Maize DDGS, Maize DOC, Rice DDGS, Wheat Bran, and custom livestock feed.",
+    path: "/products",
+    keywords: [
+      "Cattle Feed Products",
+      "Maize DDGS",
+      "Rice DDGS",
+      "Maize DOC",
+      "Wheat Bran",
+      "Cattle Nutrition Sourcing",
+    ],
+  });
+}
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const [products, siteSettings] = await Promise.all([
+    getProductsAction(),
+    getSiteSettingsAction(),
+  ]);
+
   return (
     <div className="w-full font-sans antialiased selection:bg-secondary-container selection:text-on-secondary-container bg-background">
-      <Header />
+      <Header siteSettings={siteSettings} />
       <main className="pt-20">
         {/* Page Hero */}
         <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-[#002518]">
@@ -47,10 +69,10 @@ export default function ProductsPage() {
         </section>
 
         {/* Full Products Section */}
-        <ProductsSection />
+        <ProductsSection products={products} />
       </main>
-      <Footer />
-      <WhatsAppFAB />
+      <Footer siteSettings={siteSettings} />
+      <WhatsAppFAB whatsappNumber={siteSettings.whatsappNumber} />
     </div>
   );
 }

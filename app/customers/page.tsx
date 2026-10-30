@@ -1,19 +1,39 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Image from "next/image";
+import {
+  getTestimonialsAction,
+  getSiteSettingsAction,
+  constructPageMetadata,
+} from "@/app/actions/sanity";
 
-export const metadata = {
-  title: "Who We Serve - Manav Canvassers",
-  description:
-    "Who we serve across the cattle feed and agricultural supply chain. Supporting dairy businesses, feed manufacturers, and traders.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return constructPageMetadata("customers", {
+    title: "Who We Serve - Dairy Farms, Feed Mills & Agro Traders | Manav Canvassers",
+    description:
+      "Who we serve across the cattle feed and agricultural supply chain. Supporting dairy businesses, industrial feed manufacturers, and agro traders across India.",
+    path: "/customers",
+    keywords: [
+      "Feed Mills Sourcing",
+      "Dairy Farm Cattle Feed",
+      "Commercial Agro Traders",
+      "Livestock Feed Clients",
+    ],
+  });
+}
 
-export default function CustomersPage() {
+export default async function CustomersPage() {
+  const [testimonials, siteSettings] = await Promise.all([
+    getTestimonialsAction(),
+    getSiteSettingsAction(),
+  ]);
+
   return (
     <div className="w-full font-sans antialiased selection:bg-secondary-container selection:text-on-secondary-container bg-background">
-      <Header />
+      <Header siteSettings={siteSettings} />
       <main className="pt-20">
         {/* Page Hero */}
         <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-[#002518]">
@@ -80,12 +100,12 @@ export default function CustomersPage() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <TestimonialsSection />
+        {/* Testimonials from Sanity */}
+        <TestimonialsSection items={testimonials} />
 
       </main>
-      <Footer />
-      <WhatsAppFAB />
+      <Footer siteSettings={siteSettings} />
+      <WhatsAppFAB whatsappNumber={siteSettings.whatsappNumber} />
     </div>
   );
 }

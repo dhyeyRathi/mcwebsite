@@ -60,11 +60,19 @@ export default function TestimonialsSection({
     });
   };
 
-  // Optional: Auto-play functionality
+  // Auto-play functionality
   useEffect(() => {
     const timer = setInterval(handleNext, 6000);
     return () => clearInterval(timer);
   }, []);
+
+  // Sync state if items prop updates
+  useEffect(() => {
+    if (items && items.length > 0) {
+      setCarouselItems(items.map((item, i) => ({ ...item, uniqueKey: i })));
+      nextKey.current = items.length;
+    }
+  }, [items]);
 
   return (
     <section id="reviews" className="flex flex-col justify-center py-12 sm:py-16 lg:py-16 bg-white border-b border-stone-200 overflow-hidden relative">

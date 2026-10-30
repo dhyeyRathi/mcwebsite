@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { allProducts, ProductItem } from "@/data/products";
+import type { SanityProductItem } from "@/app/actions/sanity";
 
-export type { ProductItem };
+export type { ProductItem, SanityProductItem };
 export { allProducts };
 
 const containerVariants: Variants = {
@@ -30,13 +31,37 @@ const cardVariants: Variants = {
 interface ProductsSectionProps {
   limit?: number;
   showViewAll?: boolean;
+  /** Products fetched from Sanity via Server Actions. Falls back to static data if not provided. */
+  products?: SanityProductItem[];
 }
 
 export default function ProductsSection({
   limit,
   showViewAll = false,
+  products,
 }: ProductsSectionProps) {
-  const displayProducts = limit ? allProducts.slice(0, limit) : allProducts;
+  // Normalise Sanity products to a common shape, guaranteeing a non-empty image source
+  const normalised = products
+    ? products.map((p) => {
+        const imageSrc =
+          p.imageUrl && p.imageUrl.trim().length > 0
+            ? p.imageUrl
+            : "/assets/company/grains_display.jpg";
+
+        return {
+          id: p.slug,
+          title: p.title,
+          category: p.category as ProductItem["category"],
+          description: p.description,
+          image: imageSrc,
+          alt: p.alt || p.title,
+          tags: p.tags || [],
+          featured: p.featured,
+        };
+      })
+    : allProducts;
+
+  const displayProducts = limit ? normalised.slice(0, limit) : normalised;
 
   return (
     <section id="products" className="flex flex-col justify-center py-12 sm:py-16 lg:py-16 bg-[#FAFAF9] border-b border-stone-200 overflow-hidden">
@@ -72,12 +97,19 @@ export default function ProductsSection({
               className="group w-full max-w-[280px] sm:max-w-[300px] bg-white border border-stone-200/90 rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col h-[350px] sm:h-[370px] lg:h-[390px]"
             >
               {/* Image Container - 60% of card height */}
-              <div className="h-[60%] w-full overflow-hidden relative bg-stone-100 shrink-0">
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <Link href={`/products/${product.id}`} className="h-[60%] w-full overflow-hidden relative bg-stone-100 shrink-0 block">
+                {product.image && product.image.trim().length > 0 ? (
+                  <img
+                    src={product.image}
+                    alt={product.alt || product.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-stone-100 text-stone-400">
+                    <span className="material-symbols-outlined text-3xl">image</span>
+                  </div>
+                )}
                 <div className="absolute top-2 left-2">
                   <span className="bg-[#0B251B]/90 text-white text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded backdrop-blur-sm shadow-xs">
                     {product.category}
@@ -90,27 +122,42 @@ export default function ProductsSection({
                     </span>
                   </div>
                 )}
-              </div>
+              </Link>
 
               {/* Content Container - 40% of card height */}
               <div className="h-[40%] p-3 sm:p-3.5 flex flex-col justify-between bg-white">
                 <div>
-                  <h3 className="text-[#0B251B] font-serif text-sm sm:text-base font-bold leading-snug mb-0.5 group-hover:text-[#735B25] transition-colors truncate">
-                    {product.title}
-                  </h3>
-                  <p className="text-stone-600 text-[11px] sm:text-xs leading-relaxed line-clamp-2">
+                  <Link href={`/products/${product.id}`}>
+                    <h3 className="text-[#0B251B] font-serif text-sm sm:text-base font-bold leading-snug mb-0.5 group-hover:text-[#735B25] transition-colors truncate">
+                      {product.title}
+                    </h3>
+                  </Link>
+                  <p className="text-stone-500 text-[11px] sm:text-xs line-clamp-2 leading-relaxed">
                     {product.description}
                   </p>
                 </div>
 
-                {/* Card Footer Action */}
-                <div className="pt-1.5 border-t border-stone-100">
+                <div className="pt-2 border-t border-stone-100 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1">
+                    {product.tags && product.tags.slice(0, 1).map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
                   <Link
-                    href={`/contact?product=${encodeURIComponent(product.title)}`}
-                    className="w-full inline-flex items-center justify-between text-[11px] sm:text-xs font-bold text-[#0B251B] group-hover:text-[#735B25] transition-colors"
+                    href={`/products/${product.id}`}
+                    className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-[#0B251B] hover:text-[#735B25] transition-colors"
                   >
-                    <span>Enquire Availability & Pricing</span>
-                    <span className="material-symbols-outlined text-xs font-bold group-hover:translate-x-1 transition-transform">
+                    View Details
+                    <span
+                      className="material-symbols-outlined text-xs"
+                      style={{ fontVariationSettings: "'FILL' 0" }}
+                    >
                       arrow_forward
                     </span>
                   </Link>
@@ -121,23 +168,20 @@ export default function ProductsSection({
         </motion.div>
 
         {showViewAll && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mt-4 sm:mt-5 pt-3 border-t border-stone-200"
-          >
+          <div className="mt-8 sm:mt-10 text-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-1.5 bg-[#0B251B] text-white hover:bg-[#173B2C] font-semibold px-5 py-2 rounded-md transition-colors shadow-sm text-xs cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#0B251B] text-white hover:bg-[#133E2E] text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all group"
             >
-              View Full Commodity Sourcing Catalog (15+ Items)
-              <span className="material-symbols-outlined text-xs font-bold">
+              <span>Explore All Products</span>
+              <span
+                className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform"
+                style={{ fontVariationSettings: "'FILL' 0" }}
+              >
                 arrow_forward
               </span>
             </Link>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

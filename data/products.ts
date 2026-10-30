@@ -7,6 +7,7 @@ export interface ProductItem {
   alt: string;
   tags: string[];
   featured?: boolean;
+  specifications?: Array<{ key: string; value: string }>;
 }
 
 export const allProducts: ProductItem[] = [

@@ -4,8 +4,36 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function Footer() {
+import type { SiteSettingsData } from "@/app/actions/sanity";
+
+interface FooterProps {
+  siteSettings?: SiteSettingsData;
+}
+
+export default function Footer({ siteSettings }: FooterProps) {
   const currentYear = new Date().getFullYear();
+
+  const tagline =
+    siteSettings?.tagline ||
+    "Your Trusted Partner for Premium Cattle Feed Solutions";
+  const address =
+    siteSettings?.address ||
+    "F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006, Gujarat";
+  const contacts = siteSettings?.contacts || siteSettings?.brokers || [
+    {
+      name: "Jay Maheshwari",
+      role: "Sourcing & Brokerage",
+      contactNumbers: ["+91 96421 74768", "+91 94260 03460"],
+      phones: ["+91 96421 74768", "+91 94260 03460"],
+    },
+    {
+      name: "Alpesh Maheshwari",
+      role: "Logistics Desk",
+      contactNumbers: ["+91 98253 75833", "+91 81417 08456"],
+      phones: ["+91 98253 75833", "+91 81417 08456"],
+    },
+  ];
+  const whatsappNumber = siteSettings?.whatsappNumber || "919642174768";
 
   return (
     <motion.footer
@@ -27,7 +55,7 @@ export default function Footer() {
             />
           </Link>
           <p className="text-[#C8A96B] text-sm font-semibold tracking-wide mb-2">
-            Your Trusted Partner for Premium Cattle Feed Solutions
+            {tagline}
           </p>
           <p className="text-stone-400 text-sm leading-relaxed max-w-sm mb-6">
             Connecting businesses across the cattle-feed and agricultural
@@ -43,7 +71,7 @@ export default function Footer() {
               </span>
               APMC Vadodara Central Market
             </p>
-            <p>F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006, Gujarat</p>
+            <p>{address}</p>
           </div>
         </div>
 
@@ -142,47 +170,39 @@ export default function Footer() {
             Direct Contacts
           </h4>
           <div className="space-y-4 text-xs text-stone-300">
-            <div>
-              <p className="font-bold text-white text-sm">Jay Maheshwari</p>
-              <p className="mt-0.5">
-                <a
-                  href="tel:+919642174768"
-                  className="hover:text-[#C8A96B] transition-colors"
-                >
-                  +91 96421 74768
-                </a>{" "}
-                •{" "}
-                <a
-                  href="tel:+919088111940"
-                  className="hover:text-[#C8A96B] transition-colors"
-                >
-                  +91 90881 11940
-                </a>
-              </p>
-            </div>
-
-            <div>
-              <p className="font-bold text-white text-sm">Alpesh Maheshwari</p>
-              <p className="mt-0.5">
-                <a
-                  href="tel:+919825375833"
-                  className="hover:text-[#C8A96B] transition-colors"
-                >
-                  +91 98253 75833
-                </a>{" "}
-                •{" "}
-                <a
-                  href="tel:+918141708456"
-                  className="hover:text-[#C8A96B] transition-colors"
-                >
-                  +91 81417 08456
-                </a>
-              </p>
-            </div>
+            {contacts.map((contact) => {
+              const numbers =
+                contact.contactNumbers?.length
+                  ? contact.contactNumbers
+                  : contact.phones?.length
+                  ? contact.phones
+                  : [];
+              return (
+                <div key={contact.name}>
+                  <p className="font-bold text-white text-sm">{contact.name}</p>
+                  {contact.role && (
+                    <p className="text-[11px] text-stone-400 mb-0.5">{contact.role}</p>
+                  )}
+                  <p className="mt-0.5">
+                    {numbers.map((phone, pIdx) => (
+                      <span key={phone}>
+                        <a
+                          href={`tel:${phone.replace(/\s+/g, "")}`}
+                          className="hover:text-[#C8A96B] transition-colors"
+                        >
+                          {phone}
+                        </a>
+                        {pIdx < numbers.length - 1 && " • "}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              );
+            })}
 
             <div className="pt-2">
               <a
-                href="https://wa.me/919642174768"
+                href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white px-3.5 py-2 rounded font-semibold text-xs transition-colors shadow-sm"

@@ -6,6 +6,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
+import type { SiteSettingsData } from "@/app/actions/sanity";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -14,9 +16,19 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Header() {
+interface HeaderProps {
+  siteSettings?: SiteSettingsData;
+}
+
+export default function Header({ siteSettings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const contacts = siteSettings?.contacts || siteSettings?.brokers || [
+    { name: "Jay Maheshwari", phones: ["+91 96421 74768"] },
+    { name: "Alpesh Maheshwari", phones: ["+91 98253 75833"] },
+  ];
+  const address = siteSettings?.address || "F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006";
 
   return (
     <motion.header
@@ -30,28 +42,27 @@ export default function Header() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1 sm:gap-4">
           <p className="hidden md:flex items-center gap-2">
             <span className="text-[#C8A96B] font-semibold">APMC Vadodara:</span>
-            <span>F-02, Dalal Bhavan, Hathi Khana, Vadodara – 390006</span>
+            <span className="truncate max-w-sm">{address}</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-center">
-            <span>
-              Jay Maheshwari:{" "}
-              <a
-                href="tel:+919642174768"
-                className="text-white hover:text-[#C8A96B] font-medium transition-colors"
-              >
-                +91 96421 74768
-              </a>
-            </span>
-            <span className="hidden sm:inline text-white/30">•</span>
-            <span>
-              Alpesh Maheshwari:{" "}
-              <a
-                href="tel:+919825375833"
-                className="text-white hover:text-[#C8A96B] font-medium transition-colors"
-              >
-                +91 98253 75833
-              </a>
-            </span>
+            {contacts.slice(0, 2).map((contact, idx) => {
+              const primaryPhone =
+                contact.contactNumbers?.[0] || contact.phones?.[0] || "+91 96421 74768";
+              return (
+                <span key={contact.name || idx}>
+                  {contact.name}:{" "}
+                  <a
+                    href={`tel:${primaryPhone.replace(/\s+/g, "")}`}
+                    className="text-white hover:text-[#C8A96B] font-medium transition-colors"
+                  >
+                    {primaryPhone}
+                  </a>
+                  {idx === 0 && contacts.length > 1 && (
+                    <span className="hidden sm:inline text-white/30 ml-4">•</span>
+                  )}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>
